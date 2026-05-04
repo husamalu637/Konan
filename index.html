@@ -1,1 +1,157 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صدى الطفولة | المحقق كونان HD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2a52be;
+            --secondary: #1a3a8a;
+            --bg: #050a14;
+            --card: #0f172a;
+            --text: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        header h1 { margin: 0; font-size: 2.2rem; font-weight: 900; }
+        header p { margin: 10px 0 0; opacity: 0.9; }
+
+        .main-container {
+            max-width: 900px;
+            width: 95%;
+            margin: 30px auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--text);
+            background: rgba(42, 82, 190, 0.2);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid var(--primary);
+        }
+
+        .episodes-container {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+            gap: 12px;
+        }
+
+        .ep-btn {
+            background: #1e293b;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 0;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s ease;
+            display: block;
+        }
+
+        .ep-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(42, 82, 190, 0.4);
+        }
+
+        footer {
+            margin: 40px 0;
+            opacity: 0.5;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🔍 صدى الطفولة</h1>
+    <p>المحقق كونان - القائمة الكاملة HD</p>
+</header>
+
+<div class="main-container">
+    <div class="section-header">قائمة الحلقات</div>
+    <div class="episodes-container">
+        <div class="episodes-grid" id="buttonsGrid"></div>
+    </div>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة - صدى الطفولة &copy; 2026</p>
+</footer>
+
+<script>
+    const episodeLinks = [
+        "https://cartoony.net/watch/453/4243", "https://cartoony.net/watch/453/4244", "https://cartoony.net/watch/453/4245",
+        "https://cartoony.net/watch/453/4246", "https://cartoony.net/watch/453/4247", "https://cartoony.net/watch/453/4248",
+        "https://cartoony.net/watch/453/4249", "https://cartoony.net/watch/453/4250", "https://cartoony.net/watch/453/4251",
+        "https://cartoony.net/watch/453/4252", "https://cartoony.net/watch/453/4253", "https://cartoony.net/watch/453/4254",
+        "https://cartoony.net/watch/453/4255", "https://cartoony.net/watch/453/4256", "https://cartoony.net/watch/453/4257",
+        "https://cartoony.net/watch/453/4258", "https://cartoony.net/watch/453/4259", "https://cartoony.net/watch/453/4260",
+        "https://cartoony.net/watch/453/4261", 
+        "https://cartoony.net/watch/453/4262", // تم إضافة الحلقة رقم 20 هنا
+        "https://cartoony.net/watch/453/4263", "https://cartoony.net/watch/453/4264", "https://cartoony.net/watch/453/4265",
+        "https://cartoony.net/watch/453/4266", "https://cartoony.net/watch/453/4267", "https://cartoony.net/watch/453/4268",
+        "https://cartoony.net/watch/453/4269", "https://cartoony.net/watch/453/4270", "https://cartoony.net/watch/453/4271",
+        "https://cartoony.net/watch/453/4272", "https://cartoony.net/watch/453/4273", "https://cartoony.net/watch/453/4274",
+        "https://cartoony.net/watch/453/4275", "https://cartoony.net/watch/453/4276", "https://cartoony.net/watch/453/4277",
+        "https://cartoony.net/watch/453/4278", "https://cartoony.net/watch/453/4279", "https://cartoony.net/watch/453/4280",
+        "https://cartoony.net/watch/453/4281", "https://cartoony.net/watch/453/4282"
+    ];
+
+    const grid = document.getElementById('buttonsGrid');
+    const adLink = 'https://www.profitablecpmratenetwork.com/e41dj2h87?key=bef514b5ca3fa945e7a3b60e4a9ef21a';
+
+    episodeLinks.forEach((link, index) => {
+        const btn = document.createElement('a');
+        btn.className = 'ep-btn';
+        btn.innerText = index + 1;
+        btn.href = "#";
+
+        btn.onclick = function(e) {
+            e.preventDefault();
+            window.open(link, '_blank');
+            window.location.href = adLink;
+        };
+        grid.appendChild(btn);
+    });
+</script>
+
+</body>
+</html>
